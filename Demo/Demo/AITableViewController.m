@@ -9,6 +9,8 @@
 #import "AITableViewController.h"
 #import "AIDatePickerController.h"
 
+#import "CCPickerController.h"
+
 @interface AITableViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) UITableView *tableView;
@@ -44,20 +46,24 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+  if (indexPath.row == 0) {
     cell.textLabel.text = @"Pick a date";
+  } else
+    cell.textLabel.text = @"Pick something";
+
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+  if (indexPath.row == 0) {
     __weak AITableViewController *weakSelf = self;
     
     // Creating a date
@@ -66,21 +72,33 @@
     NSDate *date = [dateFormatter dateFromString:@"1955-02-24"];
     
     AIDatePickerController *datePickerViewController = [AIDatePickerController pickerWithDate:date selectedBlock:^(NSDate *selectedDate) {
-        __strong AITableViewController *strongSelf = weakSelf;
-        
-        [strongSelf dismissViewControllerAnimated:YES completion:nil];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-        NSLog(@"Selected Date : %@", selectedDate);
-        
+      __strong AITableViewController *strongSelf = weakSelf;
+      
+      [strongSelf dismissViewControllerAnimated:YES completion:nil];
+      [tableView deselectRowAtIndexPath:indexPath animated:YES];
+      
+      NSLog(@"Selected Date : %@", selectedDate);
+      
     } cancelBlock:^{
-        __strong AITableViewController *strongSelf = weakSelf;
-        
-        [strongSelf dismissViewControllerAnimated:YES completion:nil];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+      __strong AITableViewController *strongSelf = weakSelf;
+      
+      [strongSelf dismissViewControllerAnimated:YES completion:nil];
+      [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }];
     
     [self presentViewController:datePickerViewController animated:YES completion:nil];
+  } else {
+    NSArray *data = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    CCPickerController *picker = [CCPickerController pickerWithData:data selectedBlock:^(NSUInteger selectedRow) {
+      NSLog(@"selected data is %@", [data objectAtIndex:selectedRow]);
+      [self dismissViewControllerAnimated:YES completion:nil];
+      [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } cancelBlock:^{
+      [self dismissViewControllerAnimated:YES completion:nil];
+      [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }];
+    [self presentViewController:picker animated:YES completion:nil];
+  }
 }
 
 @end
