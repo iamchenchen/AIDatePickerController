@@ -34,6 +34,9 @@ typedef void (^CCDataPickerVoidBlock)(void);
 
 @property (nonatomic) NSArray *data;
 
+@property (nonatomic) NSInteger selected;
+
+
 /**
  * The Block which is executed when the select button is touched.
  */
@@ -53,6 +56,6 @@ typedef void (^CCDataPickerVoidBlock)(void);
  *
  *  @return A newly created pickerView.
  */
-+ (id)pickerWithData:(NSArray *)data selectedBlock:(CCDataPickerBlock)selectedBlock cancelBlock:(CCDataPickerVoidBlock)cancelBlock;
++ (id)pickerWithData:(NSArray *)data andRow:(NSInteger) selectedRow selectedBlock:(CCDataPickerBlock)selectedBlock cancelBlock:(CCDataPickerVoidBlock)cancelBlock;
 
 @end

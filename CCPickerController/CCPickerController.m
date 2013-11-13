@@ -21,8 +21,6 @@ static NSTimeInterval const CCAnimatedTransitionDuration = 0.4;
 @property (nonatomic) UIView *buttonContainerView;
 @property (nonatomic) UIView *dataPickerContainerView;
 
-@property (nonatomic) NSInteger selected;
-
 //UIButton Actions
 
 - (void)didTouchCancelButton:(id)sender;
@@ -54,14 +52,16 @@ static NSTimeInterval const CCAnimatedTransitionDuration = 0.4;
 }
 
 
-+ (id)pickerWithData:(NSArray *)data selectedBlock:(CCDataPickerBlock)selectedBlock cancelBlock:(CCDataPickerVoidBlock)cancelBlock {
++ (id)pickerWithData:(NSArray *)data andRow:(NSInteger) selectedRow selectedBlock:(CCDataPickerBlock)selectedBlock cancelBlock:(CCDataPickerVoidBlock)cancelBlock
+{
   CCPickerController *dataPicker = [CCPickerController new];
+//  dataPicker.selected = selectedRow;
   dataPicker.data = [data copy];
   dataPicker.dataPicker.dataSource = dataPicker.self;
   dataPicker.dataPicker.delegate = dataPicker.self;
   dataPicker.dataBlock = [selectedBlock copy];
   dataPicker.voidBlock = [cancelBlock copy];
-  
+  [dataPicker.dataPicker selectRow:selectedRow inComponent:0 animated:YES];
   return dataPicker;
 }
 

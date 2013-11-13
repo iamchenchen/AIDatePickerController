@@ -15,13 +15,19 @@
 
 @property (nonatomic) UITableView *tableView;
 
+//this is a temp idea, I want to make it better
+@property (nonatomic) NSInteger selected;
+
 @end
 
 @implementation AITableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  
+  // temp idea
+  self.selected = 0;
+  
     // View Controller
     self.title = @"Date Picker";
     
@@ -89,8 +95,9 @@
     [self presentViewController:datePickerViewController animated:YES completion:nil];
   } else {
     NSArray *data = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
-    CCPickerController *picker = [CCPickerController pickerWithData:data selectedBlock:^(NSUInteger selectedRow) {
+    CCPickerController *picker = [CCPickerController pickerWithData:data andRow:self.selected selectedBlock:^(NSUInteger selectedRow) {
       NSLog(@"selected data is %@", [data objectAtIndex:selectedRow]);
+      self.selected = selectedRow;
       [self dismissViewControllerAnimated:YES completion:nil];
       [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } cancelBlock:^{
