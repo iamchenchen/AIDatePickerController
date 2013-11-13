@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CEF9FDF1832F5350056FF9B /* CCPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF9FDE1832F5350056FF9B /* CCPickerController.m */; };
+		3CEF9FE3183302590056FF9B /* CCPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CEF9FE2183302590056FF9B /* CCPickerController.m */; };
 		7B082C3E182AEC780065C807 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B082C3D182AEC780065C807 /* Foundation.framework */; };
 		7B082C40182AEC780065C807 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B082C3F182AEC780065C807 /* CoreGraphics.framework */; };
 		7B082C42182AEC780065C807 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B082C41182AEC780065C807 /* UIKit.framework */; };
@@ -20,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3CEF9FDD1832F5350056FF9B /* CCPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPickerController.h; sourceTree = "<group>"; };
-		3CEF9FDE1832F5350056FF9B /* CCPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPickerController.m; sourceTree = "<group>"; };
+		3CEF9FE1183302590056FF9B /* CCPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCPickerController.h; path = ../../CCPickerController/CCPickerController.h; sourceTree = "<group>"; };
+		3CEF9FE2183302590056FF9B /* CCPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCPickerController.m; path = ../../CCPickerController/CCPickerController.m; sourceTree = "<group>"; };
 		7B082C3A182AEC780065C807 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B082C3D182AEC780065C807 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7B082C3F182AEC780065C807 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CEF9FE0183302340056FF9B /* CCPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				3CEF9FE1183302590056FF9B /* CCPickerController.h */,
+				3CEF9FE2183302590056FF9B /* CCPickerController.m */,
+			);
+			name = CCPickerController;
+			sourceTree = "<group>";
+		};
 		7B082C31182AEC780065C807 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +94,7 @@
 		7B082C43182AEC780065C807 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				3CEF9FE0183302340056FF9B /* CCPickerController */,
 				7B082C71182AED070065C807 /* AIDatePickerController */,
 				7B082C4C182AEC780065C807 /* AIAppDelegate.h */,
 				7B082C4D182AEC780065C807 /* AIAppDelegate.m */,
@@ -110,8 +120,6 @@
 		7B082C71182AED070065C807 /* AIDatePickerController */ = {
 			isa = PBXGroup;
 			children = (
-				3CEF9FDD1832F5350056FF9B /* CCPickerController.h */,
-				3CEF9FDE1832F5350056FF9B /* CCPickerController.m */,
 				7B082C72182AED070065C807 /* AIDatePickerController.h */,
 				7B082C73182AED070065C807 /* AIDatePickerController.m */,
 			);
@@ -184,7 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B082C4E182AEC780065C807 /* AIAppDelegate.m in Sources */,
-				3CEF9FDF1832F5350056FF9B /* CCPickerController.m in Sources */,
+				3CEF9FE3183302590056FF9B /* CCPickerController.m in Sources */,
 				7B082C74182AED070065C807 /* AIDatePickerController.m in Sources */,
 				7B082C70182AECD00065C807 /* AITableViewController.m in Sources */,
 				7B082C4A182AEC780065C807 /* main.m in Sources */,
